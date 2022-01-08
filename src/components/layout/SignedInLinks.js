@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Dropdown from './dropdown'
 
 let Sun, Moon;
 
@@ -24,15 +25,7 @@ const SignedInLinks = ({ theme, toggleTheme }) => {
         <li style={{margin: "0 10px 0 10px"}}><h1>Home</h1></li>
         <li style={{margin: "0 10px 0 10px"}}><h1>About</h1></li>
         <li style={{margin: "0 10px 0 10px"}}><h1>Tree</h1></li>
-        <li style={{margin: "0 10px 0 10px"}}><h1>Support</h1></li>
-        <li style={{margin: "0 10px 0 10px"}}>
-        <h1>
-        
-        </h1>
-        </li>
-        {/* <li style={{margin: "0 10px 0 10px"}}><h1>Education Fund</h1></li>
-        <li style={{margin: "0 10px 0 10px"}}><h1>Welfare Support</h1></li>
-        <li style={{margin: "0 10px 0 10px"}}><h1>Technical Training Support</h1></li> */}
+        <li><Dropdown/></li>
       </ul>
       </div>
     
@@ -45,8 +38,6 @@ const SignedInLinks = ({ theme, toggleTheme }) => {
       <div style={{display: "flex",}}>
       <ul style={{listStyle: "none", display: "flex", alignItems: "center"}}>
         <li style={{margin: "-5px 5px 0 5px", display: "flex"}}><h1 style={{marginRight: "5px"}}><i class="fas fa-user-circle"></i></h1><h1>Chika</h1></li>
-        {/* <li style={{margin: "-5px 5px 0 5px"}}><h1><i class="fas fa-user-circle"></i></h1></li> */}
-        {/* <i class="fas fa-user-circle" style={{width: "48", height: "48"}}></i> */}
       </ul>
       </div>
       </div>
