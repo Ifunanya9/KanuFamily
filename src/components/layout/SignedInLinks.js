@@ -1,29 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import SignedInLinks from './SignedInLinks'
 
-// let Sun, Moon;
+let Sun, Moon;
 
-// Sun = Moon = styled.svg`
-//   position: absolute;
-//   align-items: center;
-//   justify-flex: center;
-//   display:flex;
-//   transition: all .5s linear;
-// `;
+Sun = Moon = styled.svg`
+  position: absolute;
+  align-items: center;
+  justify-flex: center;
+  display:flex;
+  transition: all .5s linear;
+`;
 
-export const Toggle = ({ theme, toggleTheme }) => {
-  console.log(theme);
-  return (
-    <nav 
-      style={{
-        backgroundColor: "#1c1c21",
-        color: "white",
-        padding: "0 20px 0 20px",
-      }}
-    >
-      <SignedInLinks toggleTheme={toggleTheme} theme={theme} />
-      {/* <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+const SignedInLinks = ({ theme, toggleTheme }) => { 
+    return (
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
       <div style={{
         display: "flex",
         alignItems: "center",
@@ -33,22 +23,34 @@ export const Toggle = ({ theme, toggleTheme }) => {
       <ul style={{listStyle: "none", display: "flex"}}>
         <li style={{margin: "0 10px 0 10px"}}><h1>Home</h1></li>
         <li style={{margin: "0 10px 0 10px"}}><h1>About</h1></li>
+        <li style={{margin: "0 10px 0 10px"}}><h1>Tree</h1></li>
+        <li style={{margin: "0 10px 0 10px"}}><h1>Support</h1></li>
+        <li style={{margin: "0 10px 0 10px"}}>
+        <h1>
+        
+        </h1>
+        </li>
+        {/* <li style={{margin: "0 10px 0 10px"}}><h1>Education Fund</h1></li>
+        <li style={{margin: "0 10px 0 10px"}}><h1>Welfare Support</h1></li>
+        <li style={{margin: "0 10px 0 10px"}}><h1>Technical Training Support</h1></li> */}
       </ul>
       </div>
     
 
-        <div onClick={toggleTheme} style={{cursor:'pointer', marginBottom:'50px', marginLeft:'600px'}}>
+        <div onClick={toggleTheme} style={{cursor:'pointer', marginBottom:'50px', marginLeft:'600px', alignItems: "center"}}>
       { theme === 'light' ? <Moon xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></Moon>
       : 
       <Sun xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></Sun> }
     </div>
       <div style={{display: "flex",}}>
-      <ul style={{listStyle: "none", display: "flex"}}>
-        <li style={{margin: "-5px 5px 0 5px"}}><h1>Log-in</h1></li>
-        <i class="fas fa-user-circle"></i>
+      <ul style={{listStyle: "none", display: "flex", alignItems: "center"}}>
+        <li style={{margin: "-5px 5px 0 5px", display: "flex"}}><h1 style={{marginRight: "5px"}}><i class="fas fa-user-circle"></i></h1><h1>Chika</h1></li>
+        {/* <li style={{margin: "-5px 5px 0 5px"}}><h1><i class="fas fa-user-circle"></i></h1></li> */}
+        {/* <i class="fas fa-user-circle" style={{width: "48", height: "48"}}></i> */}
       </ul>
       </div>
-      </div> */}
-    </nav>
-  )
-}
+      </div>
+    )
+  }
+
+export default SignedInLinks;

@@ -1,29 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import SignedInLinks from './SignedInLinks'
 
-// let Sun, Moon;
+let Sun, Moon;
 
-// Sun = Moon = styled.svg`
-//   position: absolute;
-//   align-items: center;
-//   justify-flex: center;
-//   display:flex;
-//   transition: all .5s linear;
-// `;
+Sun = Moon = styled.svg`
+  position: absolute;
+  align-items: center;
+  justify-flex: center;
+  display:flex;
+  transition: all .5s linear;
+`;
 
-export const Toggle = ({ theme, toggleTheme }) => {
-  console.log(theme);
-  return (
-    <nav 
-      style={{
-        backgroundColor: "#1c1c21",
-        color: "white",
-        padding: "0 20px 0 20px",
-      }}
-    >
-      <SignedInLinks toggleTheme={toggleTheme} theme={theme} />
-      {/* <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+const SignedOutLinks = ({ theme, toggleTheme }) => { 
+    return (
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
       <div style={{
         display: "flex",
         alignItems: "center",
@@ -45,10 +35,10 @@ export const Toggle = ({ theme, toggleTheme }) => {
       <div style={{display: "flex",}}>
       <ul style={{listStyle: "none", display: "flex"}}>
         <li style={{margin: "-5px 5px 0 5px"}}><h1>Log-in</h1></li>
-        <i class="fas fa-user-circle"></i>
       </ul>
       </div>
-      </div> */}
-    </nav>
-  )
-}
+      </div>
+    )
+  }
+
+export default SignedOutLinks;
