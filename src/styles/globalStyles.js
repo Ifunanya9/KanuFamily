@@ -34,7 +34,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   // body: '#121212',
-  body: '#383b42',
+  body: '#2c2c30',
   text: '#fff',
   primary: '#bb86fc',
 };

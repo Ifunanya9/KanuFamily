@@ -1,6 +1,6 @@
 import React from 'react';
 import { Content } from './components/Content'
-import { Toggle } from './components/Navbar'
+import { Toggle } from './components/layout/Navbar'
 import { useDarkMode } from './styles/useDarkMode';
 import { GlobalStyles, lightTheme, darkTheme } from './styles/globalStyles';
 import styled, { ThemeProvider } from 'styled-components';
