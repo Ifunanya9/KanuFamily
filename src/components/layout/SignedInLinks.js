@@ -24,8 +24,8 @@ const SignedInLinks = ({ theme, toggleTheme }) => {
       <ul style={{listStyle: "none", display: "flex"}}>
         <li style={{margin: "0 10px 0 10px"}}><h1>Home</h1></li>
         <li style={{margin: "0 10px 0 10px"}}><h1>About</h1></li>
-        <li style={{margin: "0 10px 0 10px"}}><h1>Tree</h1></li>
-        <li><Dropdown/></li>
+        <li style={{margin: "0 20px 0 10px"}}><h1>Tree</h1></li>
+        <Dropdown type="support"><h1>Support</h1></Dropdown>
       </ul>
       </div>
     
@@ -37,7 +37,7 @@ const SignedInLinks = ({ theme, toggleTheme }) => {
     </div>
       <div style={{display: "flex",}}>
       <ul style={{listStyle: "none", display: "flex", alignItems: "center"}}>
-        <li style={{margin: "-5px 5px 0 5px", display: "flex"}}><h1 style={{marginRight: "5px"}}><i class="fas fa-user-circle"></i></h1><h1>Chika</h1></li>
+        <Dropdown type="account"><h1 style={{marginRight: "5px"}}><i class="fas fa-user-circle"></i></h1><h1>Chika</h1></Dropdown>
       </ul>
       </div>
       </div>
