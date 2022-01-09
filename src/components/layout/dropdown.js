@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 
 function App() {
   return (
-    <Navbar>
+    <Navbar style={{marginTop:'600100px'}} >
       <h3>Support</h3><NavItem icon={<CaretIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
@@ -69,6 +69,8 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
+          <DropdownItem>My Profile</DropdownItem> 
+          <DropdownItem>My Profile</DropdownItem> 
           <DropdownItem>My Profile</DropdownItem> 
         </div>
         {/* <div className="menu">
