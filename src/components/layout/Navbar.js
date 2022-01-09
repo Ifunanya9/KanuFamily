@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Dropdown from './dropdown'
 
 let Sun, Moon;
 
@@ -33,6 +34,7 @@ export const Toggle = ({ theme, toggleTheme }) => {
       <ul style={{listStyle: "none", display: "flex"}}>
         <li style={{margin: "0 10px 0 10px"}}><h1>Home</h1></li>
         <li style={{margin: "0 10px 0 10px"}}><h1>About</h1></li>
+        <Dropdown style={{marginTop:'790px'}} />
       </ul>
       </div>
     
