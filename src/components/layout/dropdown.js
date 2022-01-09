@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 
 function App() {
   return (
-    <Navbar style={{marginTop:'600100px'}} >
+    <Navbar>
       <h3>Support</h3><NavItem icon={<CaretIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
