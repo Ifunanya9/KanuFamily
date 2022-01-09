@@ -3,21 +3,13 @@ import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-function App() {
+function Dropdown(props) {
   return (
-    <Navbar>
-      <h3>Support</h3><NavItem icon={<CaretIcon />}>
-        <DropdownMenu></DropdownMenu>
+    <li style={{display: "flex"}}>
+      {props.children}<NavItem icon={<CaretIcon />}>
+        <DropdownMenu type={props.type}></DropdownMenu>
       </NavItem>
-    </Navbar>
-  );
-}
-
-function Navbar(props) {
-  return (
-    <nav className="navbar">
-      <ul className="navbar-nav">{props.children}</ul>
-    </nav>
+      </li>
   );
 }
 
@@ -35,7 +27,7 @@ function NavItem(props) {
   );
 }
 
-function DropdownMenu() {
+function DropdownMenu(props) {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
@@ -65,23 +57,24 @@ function DropdownMenu() {
       <CSSTransition
         in={activeMenu === 'main'}
         timeout={500}
-        classNames="menu-primary"
+        className="menu-primary"
         unmountOnExit
         onEnter={calcHeight}>
-        <div className="menu">
-          <DropdownItem>My Profile</DropdownItem> 
-          <DropdownItem>My Profile</DropdownItem> 
-          <DropdownItem>My Profile</DropdownItem> 
-        </div>
-        {/* <div className="menu">
-          <DropdownItem>My Profile</DropdownItem> 
-        </div>
-        <div className="menu">
-          <DropdownItem>My Profile</DropdownItem> 
-        </div> */}
+        
+          {props.type === "support" ?
+          <div className="menu">
+          <DropdownItem>Education Fund</DropdownItem> 
+          <DropdownItem>Technical Training</DropdownItem> 
+          <DropdownItem>Welfare</DropdownItem> 
+          </div>
+          : 
+          <div className="menu"><DropdownItem>Account</DropdownItem> 
+          <DropdownItem>Settings</DropdownItem> 
+          <DropdownItem>Logout</DropdownItem></div> }
+        
       </CSSTransition>
     </div>
   );
 }
 
-export default App;
+export default Dropdown;
