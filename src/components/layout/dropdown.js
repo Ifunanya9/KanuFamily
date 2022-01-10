@@ -1,9 +1,7 @@
 import './index.css';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import React, { useState, useEffect, useRef } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { ReactComponent as CogIcon } from './icons/cog.svg';
-import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
+import { CSSTransition } from 'react-transition-group'; 
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 
@@ -48,7 +46,7 @@ function DropdownMenu(props) {
   function DropdownItem(props) {
     return (
       <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-        <span className="icon-button">{props.leftIcon}</span>
+        <span className="icon-button-like">{props.leftIcon}</span>
         {props.children}
         <span className="icon-right">{props.rightIcon}</span>
       </a>
