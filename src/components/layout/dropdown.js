@@ -1,40 +1,45 @@
 import './index.css';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import React, { useState, useEffect, useRef } from 'react';
+import OutsideClickHandler from 'react-outside-click-handler';
 import { CSSTransition } from 'react-transition-group'; 
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
+import { Link } from "react-router-dom"
 
 function Dropdown(props) {
-  return (
-    <li style={{display: "flex"}}>
-      {props.children}<NavItem icon={<CaretIcon />}>
-        <DropdownMenu type={props.type}></DropdownMenu>
-      </NavItem>
-      </li>
-  );
-}
-
-function NavItem(props) {
-  const [open, setOpen] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    document.addEventListener("mousedown", () => {
-      setIsOpen(false)
-    })
-  })
-
+  function NavItem(props) {
+    // const [open, setOpen] = useState(false);
+    
+  
+    // 
+  
+    return (
+      <li className="nav-item">
+        <Link to="/" className="icon-button-like" onClick={() => setIsOpen((isOpen) => !isOpen )} >
+          {props.icon}
+        </Link>
+  
+        {isOpen && props.children}
+      </li>
+    );
+  }
   return (
-    <li className="nav-item">
-      <a href="#" className="icon-button-like" onClick={() => setIsOpen((isOpen) => !isOpen )} >
-        {props.icon}
-      </a>
-
-      {isOpen && props.children}
+    <li style={{display: "flex", alignItems: "center"}}>
+      {props.children}
+      <OutsideClickHandler onOutsideClick={() => {
+        setIsOpen(false)
+      }}> 
+        <NavItem icon={<CaretIcon />}>
+          <DropdownMenu type={props.type}></DropdownMenu>
+        </NavItem>
+      </OutsideClickHandler>
     </li>
   );
 }
+
+
 
 function DropdownMenu(props) {
   const [activeMenu, setActiveMenu] = useState('main');
@@ -52,11 +57,11 @@ function DropdownMenu(props) {
 
   function DropdownItem(props) {
     return (
-      <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+      <Link to="/" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
         <span className="icon-button">{props.leftIcon}</span>
         {props.children}
         <span className="icon-right">{props.rightIcon}</span>
-      </a>
+      </Link>
     );
   }
 

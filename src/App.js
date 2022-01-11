@@ -4,7 +4,8 @@ import { Toggle } from './components/layout/Navbar'
 import { useDarkMode } from './styles/useDarkMode';
 import { GlobalStyles, lightTheme, darkTheme } from './styles/globalStyles';
 import styled, { ThemeProvider } from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SignIn from './components/auth/SignIn';
 
 const Container = styled.div`
   max-width: 50%;
@@ -21,7 +22,10 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <Container>
         <GlobalStyles />
-        <Content />
+        <Routes>
+          <Route exact path="/" element={<Content/>} />
+          <Route path="/signin" element={<SignIn/>} />
+          </Routes>
       </Container>
     </ThemeProvider>
     </BrowserRouter>

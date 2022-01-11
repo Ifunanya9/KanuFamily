@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import SignedInLinks from './SignedInLinks'
+// import SignedOutLinks from './SignedOutLinks'
 
 export const Toggle = ({ theme, toggleTheme }) => {
   console.log(theme);
@@ -13,6 +14,8 @@ export const Toggle = ({ theme, toggleTheme }) => {
       }}
     >
       <SignedInLinks toggleTheme={toggleTheme} theme={theme} />
+      {/* <SignedOutLinks toggleTheme={toggleTheme} theme={theme} /> */}
+
     </nav>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom"
 
 let Sun, Moon;
 
@@ -21,7 +22,7 @@ const SignedOutLinks = ({ theme, toggleTheme }) => {
       <h1 style={{marginRight: "50px"}}>Okoronkwo</h1>
 
       <ul style={{listStyle: "none", display: "flex"}}>
-        <li style={{margin: "0 10px 0 10px"}}><h1>Home</h1></li>
+      <li style={{margin: "0 20px 0 10px"}}><Link style={{textDecoration: "none", color: 'white'}} to="/"><h1>Home</h1></Link></li>
         <li style={{margin: "0 10px 0 10px"}}><h1>About</h1></li>
       </ul>
       </div>
@@ -34,7 +35,7 @@ const SignedOutLinks = ({ theme, toggleTheme }) => {
     </div>
       <div style={{display: "flex",}}>
       <ul style={{listStyle: "none", display: "flex"}}>
-        <li style={{margin: "-5px 5px 0 5px"}}><h1>Log-in</h1></li>
+        <li style={{margin: "0 20px 0 10px"}}><Link style={{textDecoration: "none", color: 'white'}} to="/signin"><h1>Log-in</h1></Link></li>
       </ul>
       </div>
       </div>

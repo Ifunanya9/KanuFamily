@@ -1,0 +1,23 @@
+.title {
+  text-decoration: none;
+  color: #000000;
+}
+
+.move {
+  text-decoration: none;
+}
+
+.jumbotron-codelines {
+  color: hsla(0, 0%, 100%, 0.6);
+  background: url(../../img/chatting.png), #e0ffff !important;
+  background-position: center 10%;
+  background-size: cover;
+}
+
+.width-2 {
+  width: 50%;
+}
+
+.magin {
+  margin: 30px;
+}
