@@ -54,6 +54,17 @@ function DropdownMenu(props) {
     );
   }
 
+  // function DropdownItemRight(props) {
+  //   return (
+  //     <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        
+  //       {props.children}
+  //       {/* <span className="icon-right">{props.rightIcon}</span> */}
+  //       <span className="icon-button">{props.leftIcon}</span>
+  //     </a>
+  //   );
+  // }
+
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
 
@@ -70,6 +81,7 @@ function DropdownMenu(props) {
           <div className="menu">
           <DropdownItem goToMenu="fund"><h2>Education Fund</h2></DropdownItem> 
           <DropdownItem goToMenu="training"><h2>Technical Training</h2></DropdownItem> 
+          {/* <DropdownItemRight goToMenu="training" leftIcon={<ArrowIcon />}><h2>Technical Training</h2></DropdownItemRight>  */}
           <DropdownItem goToMenu="welfare"><h2>Welfare</h2></DropdownItem> 
           </div>
           </CSSTransition>
