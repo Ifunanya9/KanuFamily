@@ -24,6 +24,16 @@ export const GlobalStyles = createGlobalStyle`
     transition: all .5s linear;
 
   }
+
+  .btn-primary:hover {
+    filter: brightness(1.3);
+  }
+
+  .background-primary {
+    background: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.body};
+
+  }
 `;
 
 export const lightTheme = {
