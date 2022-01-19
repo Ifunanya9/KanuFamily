@@ -31,8 +31,8 @@ export const Toggle = ({ theme, toggleTheme }) => {
       <h1 style={{marginRight: "50px"}}>Okoronkwo</h1>
 
       <ul style={{listStyle: "none", display: "flex"}}>
-        <li style={{margin: "0 10px 0 10px"}}><h1>Home</h1></li>
-        <li style={{margin: "0 10px 0 10px"}}><h1>About</h1></li>
+        <li style={{margin: "0 10px 0 10px"}}><h3>Home</h3></li>
+        <li style={{margin: "0 10px 0 10px"}}><h3>About</h3></li>
       </ul>
       </div>
     
@@ -44,8 +44,12 @@ export const Toggle = ({ theme, toggleTheme }) => {
     </div>
       <div style={{display: "flex",}}>
       <ul style={{listStyle: "none", display: "flex"}}>
+<<<<<<< HEAD
+        <li style={{margin: "-5px 5px 0 5px"}}><h3>Log-in</h3></li>
+=======
         <li style={{margin: "-5px 5px 0 5px"}}><h1>Log-in</h1></li>
         <i class="fas fa-user-circle"></i>
+>>>>>>> 26ac1cee39c557aeb730f0356087bd6e47019d38
       </ul>
       </div>
       </div> */}

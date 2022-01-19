@@ -6,15 +6,12 @@ import { CSSTransition } from 'react-transition-group';
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux';
+import { signOut } from '../../store/actions/authActions';
 
 function Dropdown(props) {
   let [isOpen, setIsOpen] = useState(false);
   function NavItem(props) {
-    // const [open, setOpen] = useState(false);
-    
-  
-    // 
-  
     return (
       <li className="nav-item">
         <Link to="/" className="icon-button-like" onClick={() => setIsOpen((isOpen) => !isOpen )} >
@@ -30,9 +27,9 @@ function Dropdown(props) {
       {props.children}
       <OutsideClickHandler onOutsideClick={() => {
         setIsOpen(false)
-      }}> 
+      }}>
         <NavItem icon={<CaretIcon />}>
-          <DropdownMenu type={props.type}></DropdownMenu>
+          <DropdownMenu type={props.type} signOut={props.signOut}></DropdownMenu>
         </NavItem>
       </OutsideClickHandler>
     </li>
@@ -147,7 +144,7 @@ function DropdownMenu(props) {
         onEnter={calcHeight}>
           <div className="menu"><DropdownItem>Account</DropdownItem> 
           <DropdownItem>Settings</DropdownItem> 
-          <DropdownItem>Logout</DropdownItem></div> 
+          <DropdownItem><button style={{width: "100%", height: "100%", background: "none", border: "none", outline: "none", textAlign: "left", color: "#dadce1", fontSize: "16px", fontFamily: "Roboto, sans-serif"}} onClick={() => props.signOut()}>Logout</button></DropdownItem></div> 
           </CSSTransition>}
         
       
@@ -155,4 +152,16 @@ function DropdownMenu(props) {
   );
 }
 
-export default Dropdown;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      signOut: (out) => dispatch(signOut(out))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dropdown)
