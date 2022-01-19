@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Dropdown from './dropdown'
+import { Link } from "react-router-dom"
 
 let Sun, Moon;
 
@@ -24,7 +25,7 @@ const SignedInLinks = ({ theme, toggleTheme }) => {
       <ul style={{listStyle: "none", display: "flex"}}>
         <li style={{margin: "0 10px 0 10px"}}><h1>Home</h1></li>
         <li style={{margin: "0 10px 0 10px"}}><h1>About</h1></li>
-        <li style={{margin: "0 20px 0 10px"}}><h1>Tree</h1></li>
+        <li style={{margin: "0 20px 0 10px"}}><Link to="/signin"><h1>Tree</h1></Link></li>
         <Dropdown type="support"><h1>Support</h1></Dropdown>
       </ul>
       </div>
