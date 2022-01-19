@@ -1,19 +1,47 @@
 import React, { Component } from 'react'
 import "./signin.css"
+import { signIn } from "../../store/actions/authActions"
+import {Navigate} from "react-router-dom"
+import {connect} from 'react-redux'
 
-
-export default class SignIn extends Component {
+class SignIn extends Component {
+  state = {
+    error: null,
+    email: "",
+    password: "",
+  };
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
+  };
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    if (this.state.password === "" || this.state.email === "") {
+      const err = "Login failed";
+      this.setState({
+        error: err,
+      });
+    }
+    try {
+      await this.props.signIn(this.state);
+    } catch (error) {
+      this.setState({ error: error.message });
+    }
+  };
   render() {
+    if (this.props.auth.uid) return <Navigate to="/"/>
     return (
       <div style={{display:"flex", height: "100%"}}>
           <div className="background-primary" style={{width: "40%", height: "100%"}}></div>
           <div style={{width: "70%"}}>
             <div style={{margin: "10rem auto 0 8rem"}}>
         <h1>Log In</h1>
+        <form onSubmit={this.handleSubmit}>
         <div className="login-form">
         {/* <FormItem>
                   <Input
-                    prefix={<UserOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
+                    prefix={<UserOiutlined style={{ color: "rgba(0,0,0,.25)" }} />}
                     placeholder="Username"
                   />
               </FormItem>
@@ -73,9 +101,26 @@ export default class SignIn extends Component {
                     Sign in
                   </button>
                 </div>
+                </form>
                 </div>
                 </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    signInError: state.firebase.auth.signInError,
+    auth: state.firebase.auth
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
