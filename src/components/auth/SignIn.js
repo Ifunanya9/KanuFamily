@@ -89,13 +89,13 @@ class SignIn extends Component {
                     />
                   </div>
                 </div>
-                {/* <div className="mt-0">
-                  {this.props.signInError ? (
-                    <div>
-                      <p className="text-danger">{this.props.signInError}</p>
+                <div className="mt-0">
+                  {this.props.backupSignInError ? (
+                    <div style={{marginTop: "10px"}}>
+                      <p style={{margin: "0"}} className="text-danger">{this.props.backupSignInError}</p>
                     </div>
                   ) : null}
-                </div> */}
+                </div>
                 <div className="mt-0">
                   <button className="btn btn-primary" type="submit" style={{marginTop: "10px"}}>
                     Sign in
@@ -112,7 +112,8 @@ class SignIn extends Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    signInError: state.firebase.auth.signInError,
+    signInError: state.auth.signInError,
+    backupSignInError: state.auth.backupSignInError,
     auth: state.firebase.auth
   }
 }
