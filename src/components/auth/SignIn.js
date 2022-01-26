@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 
 class SignIn extends Component {
   state = {
-    error: null,
+    error: "",
     email: "",
     password: "",
   };
@@ -31,6 +31,7 @@ class SignIn extends Component {
   };
   render() {
     if (this.props.auth.uid) return <Navigate to="/"/>
+    console.log(this.props.signInError);
     return (
       <div style={{display:"flex", height: "100%"}}>
           <div className="background-primary" style={{width: "40%", height: "100%"}}></div>
@@ -38,6 +39,7 @@ class SignIn extends Component {
             <div style={{margin: "10rem auto 0 8rem"}}>
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
+          {this.props.backupSignInError === "" ? <div style={{alignItems: "center", outline: "none", backgroundColor: "#b17171", height: "25px", border: "solid #966060 1px", borderRadius: "3px", width: "290px", textAlign: 'match-parent', padding: "10px 0"}}>Login Error</div> : <div></div>}
         <div className="login-form">
         {/* <FormItem>
                   <Input
@@ -89,13 +91,13 @@ class SignIn extends Component {
                     />
                   </div>
                 </div>
-                {/* <div className="mt-0">
+                <div className="mt-0">
                   {this.props.signInError ? (
                     <div>
                       <p className="text-danger">{this.props.signInError}</p>
                     </div>
                   ) : null}
-                </div> */}
+                </div>
                 <div className="mt-0">
                   <button className="btn btn-primary" type="submit" style={{marginTop: "10px"}}>
                     Sign in
@@ -113,7 +115,8 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     signInError: state.firebase.auth.signInError,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    backupSignInError: state.firebase.auth.backupSignInError
   }
 }
 

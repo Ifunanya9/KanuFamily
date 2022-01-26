@@ -1,4 +1,7 @@
-const initState = {};
+const initState = {
+  signInError: "",
+  backupSignInError: "",
+};
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
@@ -8,6 +11,7 @@ const authReducer = (state = initState, action) => {
         ...state,
         // signInError: "Login failed",
         signInError: action.err.message,
+        backupSignInError: "Login failed",
       };
     case "LOGIN_SUCCESS":
       console.log("login success");
