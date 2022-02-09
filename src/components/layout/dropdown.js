@@ -14,9 +14,9 @@ function Dropdown(props) {
   function NavItem(props) {
     return (
       <li className="nav-item">
-        <Link to="/" className="icon-button-like" onClick={() => setIsOpen((isOpen) => !isOpen )} >
+        <p style={{margin: "0"}} className="icon-button-like" onClick={() => setIsOpen((isOpen) => !isOpen )} >
           {props.icon}
-        </Link>
+        </p>
   
         {isOpen && props.children}
       </li>
@@ -54,11 +54,12 @@ function DropdownMenu(props) {
 
   function DropdownItem(props) {
     return (
-      <Link to="/" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+      <p style={{margin: "0"}} className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        
         <span className="icon-button">{props.leftIcon}</span>
         {props.children}
         <span className="icon-right">{props.rightIcon}</span>
-      </Link>
+      </p>
     );
   }
 
@@ -78,9 +79,9 @@ function DropdownMenu(props) {
           unmountOnExit
           onEnter={calcHeight}>
           <div className="menu">
-          <DropdownItem goToMenu="fund"><h2>Education Fund</h2></DropdownItem> 
-          <DropdownItem goToMenu="training"><h2>Technical Training</h2></DropdownItem> 
-          <DropdownItem goToMenu="welfare"><h2>Welfare</h2></DropdownItem> 
+          <DropdownItem goToMenu="fund"><h3>Education Fund</h3></DropdownItem> 
+          <DropdownItem goToMenu="training"><h3>Technical Training</h3></DropdownItem> 
+          <DropdownItem goToMenu="welfare"><h3>Welfare</h3></DropdownItem> 
           </div>
           </CSSTransition>
 
@@ -142,9 +143,32 @@ function DropdownMenu(props) {
         className="menu-primary"
         unmountOnExit
         onEnter={calcHeight}>
-          <div className="menu"><DropdownItem>Account</DropdownItem> 
-          <DropdownItem>Settings</DropdownItem> 
-          <DropdownItem><button style={{width: "100%", height: "100%", background: "none", border: "none", outline: "none", textAlign: "left", color: "#dadce1", fontSize: "16px", fontFamily: "Roboto, sans-serif"}} onClick={() => props.signOut()}>Logout</button></DropdownItem></div> 
+          <div className="menu"> 
+            <Link to="/account"><DropdownItem><h3>Account</h3></DropdownItem></Link>
+            <DropdownItem><h3>Settings</h3></DropdownItem> 
+            <button 
+                style={{
+                  width: "100%", 
+                  height: "100%", 
+                  background: "none", 
+                  border: "none", 
+                  outline: "none", 
+                  textAlign: "left", 
+                  color: "#dadce1", 
+                  fontSize: "16px", 
+                  fontFamily: "Roboto, sans-serif",
+                  margin: "0",
+                  padding: "0"
+                }} 
+                onClick={() => props.signOut()}
+              >
+            <DropdownItem>
+              
+                  <h3>Logout</h3>
+              
+            </DropdownItem>
+            </button>
+          </div> 
           </CSSTransition>}
         
       

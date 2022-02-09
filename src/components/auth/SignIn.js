@@ -31,7 +31,6 @@ class SignIn extends Component {
   };
   render() {
     if (this.props.auth.uid) return <Navigate to="/"/>
-    console.log(this.props.signInError);
     return (
       <div style={{display:"flex", height: "100%"}}>
           <div className="background-primary" style={{width: "40%", height: "100%"}}></div>
@@ -39,7 +38,7 @@ class SignIn extends Component {
             <div style={{margin: "10rem auto 0 8rem"}}>
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.props.backupSignInError === "" ? <div style={{alignItems: "center", outline: "none", backgroundColor: "#b17171", height: "25px", border: "solid #966060 1px", borderRadius: "3px", width: "290px", textAlign: 'match-parent', padding: "10px 0"}}>Login Error</div> : <div></div>}
+          {/* {this.props.backupSignInError !== "" ? <div style={{alignItems: "center", outline: "none", backgroundColor: "#b17171", height: "25px", border: "solid #966060 1px", borderRadius: "3px", width: "290px", textAlign: 'match-parent', padding: "10px 0"}}>{this.props.backupSignInError}</div> : <div></div>} */}
         <div className="login-form">
         {/* <FormItem>
                   <Input
@@ -92,9 +91,9 @@ class SignIn extends Component {
                   </div>
                 </div>
                 <div className="mt-0">
-                  {this.props.signInError ? (
-                    <div>
-                      <p className="text-danger">{this.props.signInError}</p>
+                  {this.props.backupSignInError !== "" ? (
+                    <div style={{marginTop: "10px"}}>
+                      <p style={{margin: "0"}} className="text-danger">{this.props.backupSignInError}</p>
                     </div>
                   ) : null}
                 </div>
@@ -114,9 +113,9 @@ class SignIn extends Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    signInError: state.firebase.auth.signInError,
-    auth: state.firebase.auth,
-    backupSignInError: state.firebase.auth.backupSignInError
+    signInError: state.auth.signInError,
+    backupSignInError: state.auth.backupSignInError,
+    auth: state.firebase.auth
   }
 }
 
