@@ -6,6 +6,7 @@ import { GlobalStyles, lightTheme, darkTheme } from './styles/globalStyles';
 import styled, { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 import "./App.css"
 import NotFound from './components/pages/NotFound';
 import Account from './components/pages/Account';
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/" element={<Content/>} />
           <Route exact path="/account" element={<Account/>} />
           <Route path="/signin" element={<SignIn/>} />
+          <Route path="/sign-up" element={<SignUp/>} />
           <Route exact path="*"  element={<NotFound/>} />
           </Routes>
       </Container>

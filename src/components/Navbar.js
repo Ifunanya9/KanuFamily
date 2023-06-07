@@ -44,12 +44,8 @@ export const Toggle = ({ theme, toggleTheme }) => {
     </div>
       <div style={{display: "flex",}}>
       <ul style={{listStyle: "none", display: "flex"}}>
-<<<<<<< HEAD
-        <li style={{margin: "-5px 5px 0 5px"}}><h3>Log-in</h3></li>
-=======
         <li style={{margin: "-5px 5px 0 5px"}}><h1>Log-in</h1></li>
         <i class="fas fa-user-circle"></i>
->>>>>>> 26ac1cee39c557aeb730f0356087bd6e47019d38
       </ul>
       </div>
       </div> */}
